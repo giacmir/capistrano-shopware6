@@ -1,4 +1,4 @@
-Capistratno tasks for Shopware6
+Capistrano tasks for Shopware6
 ===============================
 
 This gem contains instructions to deploy a [Shopware](https://www.shopware.com) 6 instance with [Capistrano](https://capistranorb.com/).
