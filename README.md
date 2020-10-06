@@ -1,2 +1,28 @@
-# capistrano-shopware6
-Gem to deploy shopware 6 with capistrano
+Capistratno tasks for Shopware6
+===============================
+
+This gem contains instructions to deploy a [Shopware](https://www.shopware.com) 6 instance with [Capistrano](https://capistranorb.com/).
+
+Details
+-------
+
+Deployment process has the following steps:
+
+* `composer install`
+* `psh.phar storefront:build`
+* `bin/console assets:install`
+* `bin/console maintenance:enable`
+* `bin/console database:migrate`
+* `bin/console maintenance:disable`
+* `bin/console cache:warmup`
+
+Usage
+-----
+
+To use this gem add this to your `Gemfile`
+
+`gem "capistrano_shopware6", git: "git@github.com:giacmir/capistrano-shopware6.git"`
+
+and then this line to your `Capfile`
+
+`require "capistrano/shopware"`
