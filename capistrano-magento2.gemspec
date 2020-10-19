@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.files = `git ls-files`.split($/)
   s.license = "OSL-3.0"
+  s.homepage = 'https://github.com/giacmir/capistrano-shopware6'
 
   s.add_dependency 'capistrano', '~> 3.0'
 end
