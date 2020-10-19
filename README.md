@@ -21,7 +21,7 @@ Usage
 
 To use this gem add this to your `Gemfile`
 
-`gem "capistrano_shopware6", git: "git@github.com:giacmir/capistrano-shopware6.git"`
+`gem "capistrano_shopware6"`
 
 and then this line to your `Capfile`
 
