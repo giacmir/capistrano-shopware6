@@ -49,7 +49,15 @@ namespace :shopware do
   namespace :console do
     task :execute, :param do |t, args|
       on roles(:app) do
-        within "#{current_path}" do
+        within release_path do
+          execute 'bin/console', args[:param]
+        end
+      end
+    end
+
+    task :execute_current, :param do |t, args|
+      on roles(:app) do
+        within current_path do
           execute 'bin/console', args[:param]
         end
       end
@@ -78,7 +86,7 @@ namespace :shopware do
     end
 
     task :maintenance_enable do
-      invoke! 'shopware:console:execute', 'sales-channel:maintenance:enable --all'
+      invoke! 'shopware:console:execute_current', 'sales-channel:maintenance:enable --all'
     end
 
     task :maintenance_disable do
