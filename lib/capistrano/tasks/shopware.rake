@@ -19,6 +19,13 @@ namespace :composer do
       end
     end
   end
+  task :update do
+    on roles(:app) do
+      within release_path do
+        execute :composer, :update
+      end
+    end
+  end
 end
 
 namespace :shopware do
@@ -90,7 +97,7 @@ end
 namespace :deploy do
   after :updated, :shopware do
 #     invoke 'composer:install'
-    execute *%w[ composer update ]
+    invoke 'composer:update'
     invoke 'shopware:console:maintenance_enable'
     invoke 'shopware:console:database_migrate'
     invoke 'shopware:psh:administration:build'
