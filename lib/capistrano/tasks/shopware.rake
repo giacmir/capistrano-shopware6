@@ -19,10 +19,11 @@ namespace :composer do
       end
     end
   end
+
   task :update do
     on roles(:app) do
       within release_path do
-        execute :composer, :update
+        execute *%w[ composer update ]
       end
     end
   end
@@ -81,6 +82,7 @@ namespace :shopware do
 
     task :database_migrate do
       invoke! 'shopware:console:execute', 'database:migrate --all'
+      invoke! 'shopware:console:execute', 'bin/console database:migrate-destructive --all'
     end
 
     task :maintenance_enable do
