@@ -89,7 +89,8 @@ end
 
 namespace :deploy do
   after :updated, :shopware do
-    invoke 'composer:install'
+#     invoke 'composer:install'
+    execute *%w[ composer update ]
     invoke 'shopware:console:maintenance_enable'
     invoke 'shopware:console:database_migrate'
     invoke 'shopware:psh:administration:build'
