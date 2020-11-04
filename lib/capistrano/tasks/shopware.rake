@@ -90,14 +90,14 @@ end
 namespace :deploy do
   after :updated, :shopware do
     invoke 'composer:install'
+    invoke 'shopware:console:maintenance_enable'
+    invoke 'shopware:console:database_migrate'
     invoke 'shopware:psh:administration:build'
     invoke 'shopware:psh:storefront:build'
     invoke 'shopware:console:assets_install'
-    invoke 'shopware:console:maintenance_enable'
   end
 
   after :published, :shopware do
-    invoke 'shopware:console:database_migrate'
     invoke 'shopware:console:maintenance_disable'
     invoke 'shopware:console:cache_warmup'
   end
