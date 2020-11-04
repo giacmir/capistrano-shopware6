@@ -9,10 +9,12 @@ Details
 Deployment process has the following steps:
 
 * `composer install`
+* `bin/console maintenance:enable`
+* `psh.phar update`
+* `bin/console database:migrate_destructive --all`
+* `psh.phar administration:build`
 * `psh.phar storefront:build`
 * `bin/console assets:install`
-* `bin/console maintenance:enable`
-* `bin/console database:migrate`
 * `bin/console maintenance:disable`
 * `bin/console cache:warmup`
 
