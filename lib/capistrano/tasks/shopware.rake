@@ -44,12 +44,6 @@ namespace :shopware do
         invoke! 'shopware:psh:execute', 'administration:build'
       end
     end
-
-    namespace :common do
-        task :update do
-          invoke! 'shopware:psh:execute', 'update'
-        end
-    end
   end
 
   namespace :console do
@@ -109,7 +103,7 @@ namespace :deploy do
   after :updated, :shopware do
     invoke 'composer:install'
     invoke 'shopware:console:maintenance_enable'
-    invoke 'shopware:psh:common:update'
+    invoke 'shopware:console:database_migrate'
     invoke 'shopware:console:database_migrate_destructive'
     invoke 'shopware:psh:administration:build'
     invoke 'shopware:psh:storefront:build'
