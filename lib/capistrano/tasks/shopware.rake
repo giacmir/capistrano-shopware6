@@ -31,6 +31,10 @@ namespace :shopware do
       end
     end
 
+    task :cache do
+      invoke! 'shopware:psh:execute', 'cache'
+    end
+
     namespace :storefront do
       task :build do
         invoke! 'shopware:psh:execute', 'storefront:install-dependencies'
@@ -103,6 +107,7 @@ namespace :deploy do
   after :updated, :shopware do
     invoke 'composer:install'
     invoke 'shopware:console:maintenance_enable'
+    invoke 'shopware:psh:cache' #this is needed to generate the .env file from .psh.yaml
     invoke 'shopware:console:database_migrate'
     invoke 'shopware:console:database_migrate_destructive'
     invoke 'shopware:psh:administration:build'
