@@ -15,7 +15,7 @@ namespace :composer do
   task :install do
     on roles(:app) do
       within release_path do
-        execute :composer, :install
+        execute :composer, "install --prefer-dist --no-interaction --no-dev --optimize-autoloader" 
       end
     end
   end
