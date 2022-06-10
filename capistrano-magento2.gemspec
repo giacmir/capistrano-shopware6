@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.authors = ['Giacomo Mirabassi', 'Davide Borgia']
   s.name = %q{capistrano_shopware6}
-  s.version = "0.2.3"
-  s.date = %q{2021-02-18}
+  s.version = "0.2.4"
+  s.date = %q{2022-06-10}
   s.summary = %q{Capistrano deploy instructions for Shopware 6}
   s.require_paths = ["lib"]
   s.files = `git ls-files`.split($/)
