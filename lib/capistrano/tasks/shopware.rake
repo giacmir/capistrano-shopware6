@@ -68,6 +68,7 @@ namespace :shopware do
     end
 
     task :theme_compile do
+      invoke! 'shopware:console:execute', 'theme:refresh'
       invoke! 'shopware:console:execute', 'theme:compile'
     end
 
