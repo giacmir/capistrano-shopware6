@@ -111,9 +111,9 @@ namespace :deploy do
     invoke 'shopware:psh:cache' #this is needed to generate the .env file from .psh.yaml
     invoke 'shopware:console:database_migrate'
     invoke 'shopware:console:database_migrate_destructive'
+    invoke 'shopware:console:assets_install'
     invoke 'shopware:psh:administration:build'
     invoke 'shopware:psh:storefront:build'
-    invoke 'shopware:console:assets_install'
   end
 
   after :published, :shopware do
