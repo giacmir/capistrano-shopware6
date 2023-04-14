@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
-  s.authors = ['Giacomo Mirabassi', 'Davide Borgia']
+  s.authors = ['Giacomo Mirabassi', 'Davide Borgia', 'Francesco Pisello']
   s.name = %q{capistrano_shopware6}
-  s.version = "0.2.4"
+  s.version = "0.2.5"
   s.date = %q{2022-06-10}
   s.summary = %q{Capistrano deploy instructions for Shopware 6}
   s.require_paths = ["lib"]
